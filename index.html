@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Lucas Tangi</title>
+
+  <link href="assets/img/favicon.png" rel="icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  
+  <header id="header" class="header-tops">
+    <div class="container">
+
+      <h1><a href="index.html">Lucas Tangi</a></h1>      
+      <h2>I'm a <span id="text">  </span> from Brazil.</h2> 
+
+      <div class="social-links">
+        <a href="https://www.instagram.com/lucastangi/?hl=pt-br" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/lucas-tangi-800a33138/" class="linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/lucastangi" class="github" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.behance.net/lucastangi" class="behance" target="_blank"><i class="fab fa-behance-square"></i></a>
+        <a href="mailto:lucas.tangi@outlook.com" class="mail" target="_blank"><i class="far fa-envelope-open"></i></a>
+        <a href="https://buildlab.com.br/" class="earth" target="_blank"><i class="fas fa-globe-americas"></i></a>
+      </div>
+
+    </div>
+  </header>
+  
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+  <script type="text/javascript">
+    var _CONTENT = [ "ui designer", "dev front-end", "ux designer", "ux writer" ];
+    var _PART = 0;
+    var _PART_INDEX = 0;
+    var _INTERVAL_VAL;
+    var _ELEMENT = document.querySelector("#text");
+    function Type() { 
+      var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
+      _ELEMENT.innerHTML = text;
+      _PART_INDEX++;
+      if(text === _CONTENT[_PART]) {
+        clearInterval(_INTERVAL_VAL);
+        setTimeout(function() {
+          _INTERVAL_VAL = setInterval(Delete, 50);
+        }, 1000);
+      }
+    }
+    function Delete() {
+      var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
+      _ELEMENT.innerHTML = text;
+      _PART_INDEX--;
+      if(text === '') {
+        clearInterval(_INTERVAL_VAL);
+        if(_PART == (_CONTENT.length - 1))
+          _PART = 0;
+        else
+          _PART++;
+        _PART_INDEX = 0;
+        setTimeout(function() {
+          _INTERVAL_VAL = setInterval(Type, 100);
+        }, 200);
+      }
+    }
+    _INTERVAL_VAL = setInterval(Type, 100);
+    
+    </script>
+
+
+
+</body>
+
+</html>
